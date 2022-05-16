@@ -1,6 +1,7 @@
 package com.example.loda.core;
 
 import com.example.loda.core.tightCoupling.TightCoupling;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,14 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TightCouplingController {
     private final TightCoupling tightCoupling;
-
-    public TightCouplingController(TightCoupling tightCoupling) {
+    private final ApplicationContext applicationContext;
+    public TightCouplingController(TightCoupling tightCoupling,ApplicationContext applicationContext) {
         this.tightCoupling = tightCoupling;
+        this.applicationContext =applicationContext;
     }
 
     @GetMapping("/tightCoupling")
     public String tightCoupling(){
-        System.out.println(tightCoupling.TightCoupling());
+        System.out.println(tightCoupling.TightCoupling(applicationContext));
         return null;
     }
 }

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 public class TightCoupling {
     VeryComplexService veryComplexService = new VeryComplexService();
     private String a;
-    public String TightCoupling(){
-        return veryComplexService.test();
+    public String TightCoupling(ApplicationContext applicationContext){
+        return veryComplexService.test(applicationContext);
     }
 }
 //lvl1 ve su giang buoc cua cac class
@@ -70,12 +70,7 @@ class VeryComplexService{
     }
 
     // test application
-    @Autowired
-    ApplicationContext applicationContext;
-    VeryComplexService (ApplicationContext applicationContext){
-        this.applicationContext = applicationContext;
-    }
-    public String test() {
+    public String test(ApplicationContext applicationContext) {
         SortAlgorithm bubbleSortAlgorithm = new BubbleSortAlgorithm1();
         SortAlgorithm quickSortAlgorithm = new QuicksortAlgorithm();
         VeryComplexService bu1 = new VeryComplexService(bubbleSortAlgorithm);
