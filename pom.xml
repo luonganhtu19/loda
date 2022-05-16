@@ -13,11 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>loda</name>
     <description>Demo project for Spring Boot</description>
-    <properties>
-        <java.version>11</java.version>
-        <repackage.classifier/>
-        <spring-native.version>0.11.5</spring-native.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -26,11 +21,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.experimental</groupId>
-            <artifactId>spring-native</artifactId>
-            <version>${spring-native.version}</version>
         </dependency>
 
         <dependency>
@@ -86,7 +76,6 @@
             <plugin>
                 <groupId>org.springframework.experimental</groupId>
                 <artifactId>spring-aot-maven-plugin</artifactId>
-                <version>${spring-native.version}</version>
                 <executions>
                     <execution>
                         <id>test-generate</id>
@@ -139,32 +128,6 @@
                     <scope>test</scope>
                 </dependency>
             </dependencies>
-<!--            <build>-->
-<!--                <plugins>-->
-<!--                    <plugin>-->
-<!--                        <groupId>org.graalvm.buildtools</groupId>-->
-<!--                        <artifactId>native-maven-plugin</artifactId>-->
-<!--                        <version>${native-buildtools.version}</version>-->
-<!--                        <extensions>true</extensions>-->
-<!--                        <executions>-->
-<!--                            <execution>-->
-<!--                                <id>test-native</id>-->
-<!--                                <phase>test</phase>-->
-<!--                                <goals>-->
-<!--                                    <goal>test</goal>-->
-<!--                                </goals>-->
-<!--                            </execution>-->
-<!--                            <execution>-->
-<!--                                <id>build-native</id>-->
-<!--                                <phase>package</phase>-->
-<!--                                <goals>-->
-<!--                                    <goal>build</goal>-->
-<!--                                </goals>-->
-<!--                            </execution>-->
-<!--                        </executions>-->
-<!--                    </plugin>-->
-<!--                </plugins>-->
-<!--            </build>-->
         </profile>
     </profiles>
 
