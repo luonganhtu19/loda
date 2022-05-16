@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@Component
 public class TightCoupling {
     VeryComplexService veryComplexService = new VeryComplexService();
     private String a;
@@ -15,6 +16,8 @@ public class TightCoupling {
     }
 }
 //lvl1 ve su giang buoc cua cac class
+@Component
+@Service
 class BubbleSortAlgorithm{
     public void sort(int[] array){
         System.out.println("sap xep noi boi");
@@ -34,6 +37,7 @@ class BubbleSortAlgorithm1 implements SortAlgorithm{
 }
 //lvl3
 @Service
+@Component
 class QuicksortAlgorithm implements SortAlgorithm {
     @Override
     public void sort(int[] array) {
