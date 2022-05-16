@@ -70,6 +70,7 @@ class VeryComplexService{
     }
 
     // test application
+    @Autowired
     ApplicationContext applicationContext;
     VeryComplexService (ApplicationContext applicationContext){
         this.applicationContext = applicationContext;
