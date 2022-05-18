@@ -2,6 +2,7 @@ package com.example.loda.core.tightCoupling;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,11 @@ import org.springframework.stereotype.Service;
 public class TightCoupling {
     VeryComplexService veryComplexService = new VeryComplexService();
     private String a;
+    @Autowired
+    ApplicationContext applicationContext;
+
     public String TightCoupling(ApplicationContext applicationContext){
-        return veryComplexService.test(applicationContext);
+        return veryComplexService.test(this.applicationContext);
     }
 }
 //lvl1 ve su giang buoc cua cac class
@@ -25,6 +29,7 @@ class BubbleSortAlgorithm{
 }
 
 //lvl2
+@Component
 interface SortAlgorithm{
     public void sort(int array[]);
 }
